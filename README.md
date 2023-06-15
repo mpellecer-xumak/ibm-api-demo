@@ -36,7 +36,7 @@ $ make install
 ### Run the database
 
 ```bash
-make databse-up
+make database-up
 make database-migrate
 ```
 
