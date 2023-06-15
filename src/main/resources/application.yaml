@@ -1,0 +1,66 @@
+spring:
+  application:
+    name: wdm-configuration
+  cloud:
+    gcp:
+      logging:
+        enabled: false
+  profiles:
+    group:
+      dev:
+        - azure
+        - dev
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
+    show-sql: false
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        enable_lazy_load_no_trans: true
+        physical_naming_strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+  datasource:
+    url: jdbc:postgresql://localhost:5436/postgres
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: ${DATABASE_PASSWORD:postgres}
+    hikari:
+      schema: wdm_configuration
+      maxLifetime: 300000
+  flyway:
+    enabled: false
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: metrics, health, info
+  metrics:
+    export:
+      datadog:
+        enabled: false
+      stackdriver:
+        enabled: false
+    tags:
+      application: ${spring.application.name}
+  info:
+    git:
+      mode: full
+
+swagger:
+  enabled: "true"
+  title: "WDM Configuration API"
+  version: "1"
+  description: "This is a sample WDM Configuration server created using springdocs."
+
+springdoc:
+  swagger-ui:
+    disable-swagger-default-url: true
+  writer-with-default-pretty-printer: true
+  show-actuator: true
+

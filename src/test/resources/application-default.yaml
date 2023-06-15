@@ -1,0 +1,26 @@
+spring.application.name: wdm-configuration
+spring:
+  jpa:
+    properties:
+      hibernate:
+        auto_quote_keyword: true
+    hibernate:
+      ddl-auto: none
+  datasource:
+    name: db
+    url: jdbc:h2:mem:db;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+    hikari:
+      schema: PUBLIC
+  flyway:
+    enabled: true
+    locations:
+      - "filesystem:../schemas"
+      - "classpath:db"
+    schemas:
+      - PUBLIC
+      - flyway
+    placeholders:
+      schemaName: PUBLIC
