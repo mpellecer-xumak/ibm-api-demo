@@ -27,27 +27,27 @@ Prepared to be deployed in a Cloud enviroment on Kubernetes.
 Maven is used to build the repository:
 
 ```bash
-$ make install
+make install
 ```
 
 ---
 ## Run Locally
 ### Set local network (for docker use) 
 ```bash
-$ make set-local-network
+make set-local-network
 ```
 
 ### Run the database
 
 ```bash
-$ make database-up
-$ make database-migrate
+make database-up
+make database-migrate
 ```
 
 ### Run the service
 
 ```bash
-$ make run
+make run
 ```
 ---
 ## List of make commands
