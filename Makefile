@@ -13,6 +13,9 @@ debug: ## Run Spring Boot application in debug mode for development
 	./mvnw spring-boot:run -Dspring-boot.run.jvmArguments="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5050"
 
 ## ======= Database commands =======
+set-local-network: ## Set local network for docker use
+	docker network create -d bridge local_network
+
 database-up: ## Start up local database
 	docker run --name configuration-pg -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -d -p 5436:5432 --net=local_network postgres:11
 

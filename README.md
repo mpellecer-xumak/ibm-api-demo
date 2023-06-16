@@ -32,12 +32,16 @@ $ make install
 
 ---
 ## Run Locally
+### Set local network (for docker use)
+```bash
+$ make set-local-network
+```
 
 ### Run the database
 
 ```bash
-make database-up
-make database-migrate
+$ make database-up
+$ make database-migrate
 ```
 
 ### Run the service
@@ -52,6 +56,7 @@ $ make run
 |-------------------------|---------------------------------------------------------|
 | `make install`          | Runs the maven install to build the project             |
 | `make run`              | Runs the service                                        |
+| `make set-local-network`| Creates a "local network" to be used by Docker          |
 | `make database-up`      | Creates the database instance in your local Docker      |
 | `make database-down`    | Stops the local database container execution            |
 | `make database-migrate` | Applies the flyway files to you local database instance |
