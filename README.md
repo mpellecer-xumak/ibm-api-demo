@@ -32,7 +32,7 @@ $ make install
 
 ---
 ## Run Locally
-### Set local network (for docker use)
+### Set local network (for docker use) 
 ```bash
 $ make set-local-network
 ```
